@@ -1,0 +1,26 @@
+{
+  "name": "prisma-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "generate":"SKIP_PRISMA_VERSION_CHECK=true npx prisma generate",
+    "start": "ts-node main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.7.8",
+    "ts-node": "^10.9.2",
+    "typegraphql-prisma": "^0.24.7",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@prisma/client": "4.13.0",
+    "apollo-server": "^3.13.0",
+    "graphql": "^15.8.0",
+    "type-graphql": "^1.1.1",
+    "reflect-metadata": "^0.2.2"
+  }
+}
