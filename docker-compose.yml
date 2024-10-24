@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  graphql-postgres:
+    image: postgres:latest
+    container_name: graphql_postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgresPassword
+      POSTGRES_DB: prisma-graphql
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  prisma-graphql:
+    build: .
+    container_name: prisma_graphql_container
+    environment:
+      CHAIN_ID: ${CHAIN_ID}
+      DATABASE_URL: "postgresql://postgres:postgresPassword@graphql-postgres:5432/prisma-graphql"
+    depends_on:
+      - graphql-postgres
+    ports:
+      - "6060:6060"
+
+volumes:
+  postgres_data:

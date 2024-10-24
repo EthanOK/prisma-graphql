@@ -11,3 +11,10 @@
 # `npx prisma studio`
 
 启动 Prisma Studio，提供一个图形化界面来查看和编辑数据库中的数据。
+
+# docker run
+
+```shell
+docker-compose up -d
+```
+

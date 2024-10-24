@@ -8,6 +8,8 @@ import { PrismaClient } from "@prisma/client";
 import { ApolloServer } from "apollo-server";
 import { AuthChecker, Authorized, buildSchema } from "type-graphql";
 
+const PORT = process.env.GRAPH_PORT || 6060;
+
 const prisma = new PrismaClient();
 export const startGraph = async () => {
   const resolversEnhanceMap: ResolversEnhanceMap = {
@@ -77,7 +79,7 @@ export const startGraph = async () => {
       return { prisma, isOwnerRole };
     },
   });
-  const { url } = await server.listen("6789");
+  const { url } = await server.listen(PORT);
   console.log(`🚀🚀🚀🚀`);
   console.log(`Server is running, GraphQL Playground available at ${url}`);
 };
